@@ -5,7 +5,7 @@ from data_loader import get_loader
 from torch.backends import cudnn
 #
 # Settings.
-#
+#import pdb
 
 import ptvsd
 ptvsd.enable_attach('pytorch',address=('0.0.0.0',5022))
@@ -40,7 +40,7 @@ def main(config):
     if config.dataset in ['RaFD', 'Both']:
         rafd_loader = get_loader(config.rafd_image_path, None, config.rafd_crop_size,
                                  config.image_size, config.batch_size, 'RaFD', config.mode)
-
+    #pdb.set_trace()
     # Solver
     solver = Solver(celebA_loader, rafd_loader, config)
 
